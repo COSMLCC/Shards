@@ -1,0 +1,114 @@
+command /shard [<text>] [<player>]:
+	permission: owner.*
+	trigger:
+		if arg 1 is not set:
+			message "&f&l<&5&lCrystal&d&lShard&f&l> &7- &dShard"
+			message "&7 "
+			message " &5&l* &d/shard (1-5) [player]"
+			message " &5&l* &d/crystal help"
+			message "&7 "
+			message " &5&l* &d[] &7= Required"
+			message " &5&l* &d<> &7= Optional"
+			message "&7 "
+			message "&7Made by COSMLC"
+			stop
+		if arg 2 is not set:
+			message "&f&l<&5&lCrystal&d&lShard&f&l> &7- &dShard"
+			message "&7 "
+			message " &5&l* &d/shard (1-5) [player]"
+			message " &5&l* &d/crystal help"
+			message "&7 "
+			message " &5&l* &d[] &7= Required"
+			message " &5&l* &d<> &7= Optional"
+			message "&7 "
+			message "&7Made by COSMLC"
+			stop
+		if arg 2 is set:
+			if arg 1 is "1":
+				give a paper named "&b&lSharpness Shard" with lore "&7Drag n drop onto a sword to enchant it with the sharpness V.||&7Once used / lost cannot be refunded.||||&c&l(!) &cMake sure you are holding the sword while applying this!" to arg 2
+				stop
+			if arg 1 is "2":
+				give a paper named "&9&lDepth Shard" with lore "&7Drag n drop onto boots to enchant it with the Depth Strider III.||&7Once used / lost cannot be refunded.||||&c&l(!) &cMake sure you are holding the boots while applying this!" to arg 2
+				stop
+			if arg 1 is "3":
+				give a paper named "&d&lProtection Shard" with lore "&7Drag n drop onto any armor to enchant it with the Protection IV.||&7Once used / lost cannot be refunded.||||&c&l(!) &cMake sure you are holding the armor piece while applying this!" to arg 2
+				stop
+			if arg 1 is "4":
+				give a paper named "&e&lUnbreaking Shard" with lore "&7Drag n drop onto any armor to enchant it with the Unbreaking VII.||&7Once used / lost cannot be refunded.||||&c&l(!) &cMake sure you are holding the armor piece while applying this!" to arg 2
+				stop
+			if arg 1 is "5":
+				give a paper named "&c&lFireAspect Shard" with lore "&7Drag n drop onto any sword to enchant it with the Fire Aspect II.||&7Once used / lost cannot be refunded.||||&c&l(!) &cMake sure you are holding the sword while applying this!" to arg 2
+				stop
+
+on mor.inventory click:
+	if name of cursor item of player contains "&b&lSharpness Shard":
+		if event-item is any swords:
+			if player's held item is diamond sword:
+				cancel event
+				enchant the player's tool with sharpness 5
+				set cursor item of player to air
+				send "&7 "
+				send "&a&l(!) &aEnchantment Succussfull!"
+				send "&7 "
+			else:
+				cancel event
+				message "&c&l(!) &cYou must be holding this item in order to enchant it!"
+				stop 
+
+on mor.inventory click:
+	if name of cursor item of player contains "&9&lDepth Shard":
+		if event-item is any boots:
+			if player's held item is boots:
+				cancel event
+				enchant the player's held item with enchantments.names.depth_strider 3
+				set cursor item of player to air
+				send "&7 "
+				send "&a&l(!) &aEnchantment Succussfull!"
+				send "&7 "
+			else:
+				cancel event
+				message "&c&l(!) &cYou must be holding this item in order to enchant it!"
+				stop 
+on mor.inventory click:
+	if name of cursor item of player contains "&d&lProtection Shard":
+		if event-item is any boots, any leggings, any chestplate or any helmet:
+			if player's held item is boots or leggings or chestplate or helmet:
+				cancel event
+				enchant the player's held item with protection 4
+				set cursor item of player to air
+				send "&7 "
+				send "&a&l(!) &aEnchantment Succussfull!"
+				send "&7 "
+			else:
+				cancel event
+				message "&c&l(!) &cYou must be holding this item in order to enchant it!"
+				stop 
+on mor.inventory click:
+	if name of cursor item of player contains "&e&lUnbreaking Shard":
+		if event-item is any boots, any leggings, any chestplate or any helmet:
+			if player's held item is boots or leggings or chestplate or helmet:
+				cancel event
+				enchant the player's held item with unbreaking 7
+				set cursor item of player to air
+				send "&7 "
+				send "&a&l(!) &aEnchantment Succussfull!"
+				send "&7 "
+			else:
+				cancel event
+				message "&c&l(!) &cYou must be holding this item in order to enchant it!"
+				stop 
+				
+on mor.inventory click:
+	if name of cursor item of player contains "&c&lFireAspect Shard":
+		if event-item is any swords:
+			if player's held item is diamond sword:
+				cancel event
+				enchant the player's tool with fire aspect 2
+				set cursor item of player to air
+				send "&7 "
+				send "&a&l(!) &aEnchantment Succussfull!"
+				send "&7 "
+			else:
+				cancel event
+				message "&c&l(!) &cYou must be holding this item in order to enchant it!"
+				stop 
